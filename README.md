@@ -7,8 +7,8 @@ To run our example in your computer, you need to specify the locations of:
   1. directory (All.Path)
   2. input mag file (All.inputmagsfile)
   3. mag measurements by SExtracotr (All.sexdatafile)
-  4. example image file (All.imgfilename)
-  5. example segmentation map (All.segfilename)
+  4. image file (All.imgfilename)
+  5. segmentation map (All.segfilename)
   
 in Global 'All' variable.
 
