@@ -2,7 +2,7 @@
 
 All the dats is in example.tar.gz file
 
-To run our example in your computer, you need to specify locations of:
+To run our example in your computer, you need to specify the locations of:
   1. directory (All.Path)
   2. input mag file (All.inputmagsfile)
   3. mag measurements by SExtracotr (All.sexdatafile)
