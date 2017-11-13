@@ -17,5 +17,5 @@ you specify the locations of image file (All.imgfilename) and segmentation map(A
 
 
 When incorporating our subroutines to yours, the only thing you do is to import all subroutines and global variables, then
-run estimate_sky(xc,yc,Re) where (xc,yc) is the center of position and Re is the half-light-radius estimated by SExtractor.
-Sometines you need to redefine the maximum position of an image (All.MaxPos) or zero-point mag (All.m0).
+run estimate_sky(xc,yc,Re) where (xc,yc) is the center of object and Re is the half-light-radius estimated by SExtractor.
+Sometimes you need to redefine the maximum position of an image (All.MaxPos) or zero-point mag (All.m0).
