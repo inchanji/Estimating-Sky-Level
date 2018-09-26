@@ -1,0 +1,113 @@
+# Default configuration file for SExtractor 2.4.4.cmr.1
+# EB 2006-03-06
+#
+ 
+#-------------------------------- Catalog ------------------------------------
+ 
+CATALOG_NAME     REPLACEIT           # name of the output catalog
+CATALOG_TYPE     ASCII_HEAD
+# WAS ASCII_HEAD_PARAM: change back when available     # "NONE","ASCII_HEAD","ASCII","FITS_1.0"
+                                # "FITS_LDAC" or "FITS_TPX"
+ 
+PARAMETERS_NAME  dls.param
+
+ 
+#------------------------------- Extraction ----------------------------------
+ 
+DETECT_TYPE      CCD            # "CCD" or "PHOTO"
+DETECT_MINAREA   REPLACEIT      # minimum number of pixels above threshold
+THRESH_TYPE      RELATIVE       # threshold type: "RELATIVE" (in sigmas)
+                                # or "ABSOLUTE" (in ADUs)
+DETECT_THRESH    REPLACEIT      	# <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+ANALYSIS_THRESH  REPLACEIT      	# <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+ 
+FILTER           Y              # apply filter for detection ("Y" or "N")?
+FILTER_NAME      REPLACEIT           # name of the file containing the filter
+#FILTER_THRESH    #100                 # Threshold[s] for retina filtering
+ 
+DEBLEND_NTHRESH  10          # Number of deblending sub-thresholds
+DEBLEND_MINCONT  0.0001          # Minimum contrast parameter for deblending (new value 2/2009)
+ 
+CLEAN            Y              # Clean spurious detections? (Y or N)?
+CLEAN_PARAM      1.00           # Cleaning efficiency
+ 
+MASK_TYPE        CORRECT        # type of detection MASKing: can be one of
+                                # "NONE", "BLANK" or "CORRECT"
+ 
+#-------------------------------- WEIGHTing ----------------------------------
+
+WEIGHT_TYPE      NONE
+#MAP_RMS,MAP_RMS           # type of WEIGHTing: "NONE", "BACKGROUND",
+                                # "MAP_RMS", "MAP_VAR" or "MAP_WEIGHT"
+#WEIGHT_IMAGE     R_rms.fits,R_rms.fits    # weight-map filename
+#WEIGHT_GAIN      N              # modulate gain (E/ADU) with weights? (Y/N)
+#WEIGHT_THRESH    #1000000000000000               # weight threshold[s] for bad pixels
+
+#-------------------------------- FLAGging -----------------------------------
+
+FLAG_IMAGE       flag.fits      # filename for an input FLAG-image
+FLAG_TYPE        OR             # flag pixel combination: "OR", "AND",
+                                # "MIN", "MAX", "MOST"
+
+#------------------------------ Photometry -----------------------------------
+ 
+PHOT_APERTURES 	 3.56,7.12,9.49,14.24,18.99,28.48,48.48,96.96,130
+PHOT_AUTOPARAMS  2.5, 3.5       # MAG_AUTO parameters: <Kron_fact>,<min_radius>
+PHOT_PETROPARAMS 2.0, 3.5       # MAG_PETRO parameters: <Petrosian_fact>,
+                                # <min_radius>
+PHOT_AUTOAPERS   0.0,0.0        # <estimation>,<measurement> minimum apertures
+                                # for MAG_AUTO and MAG_PETRO
+PHOT_FLUXFRAC    0.5            # flux fraction[s] used for FLUX_RADIUS
+ 
+SATUR_LEVEL      50000.0          # level (in ADUs) at which arises saturation
+ 
+MAG_ZEROPOINT    31.451         # magnitude zero-point # DLS = 32.7373; LSST = 31.451
+MAG_GAMMA        4.0            # gamma of emulsion (for photographic scans)
+GAIN             3.0
+PIXEL_SCALE      REPLACEIT      # size of pixel in arcsec (0=use FITS WCS info)
+ 
+#------------------------- Star/Galaxy Separation ----------------------------
+ 
+SEEING_FWHM      REPLACEIT    # stellar FWHM in arcsec
+STARNNW_NAME     default.nnw  # Neural-Network_Weight table filename
+ 
+#------------------------------ Background -----------------------------------
+ 
+BACK_TYPE        AUTO           # "AUTO" or "MANUAL"
+BACK_VALUE       0.000000000    # Default background value in MANUAL mode
+BACK_SIZE        80,80            # Background mesh: <size> or <width>,<height>
+BACK_FILTERSIZE  3              # Background filter: <size> or <width>,<height>
+ 
+BACKPHOTO_TYPE   GLOBAL         # can be "GLOBAL" or "LOCAL"
+BACKPHOTO_THICK  24             # thickness of the background LOCAL annulus
+BACK_FILTTHRESH  0.0            # Threshold above which the background-
+                                # map filter operates
+ 
+#------------------------------ Check Image ----------------------------------
+ 
+CHECKIMAGE_TYPE  BACKGROUND, SEGMENTATION, BACKGROUND_RMS
+CHECKIMAGE_NAME  back.fits, seg.fits, rms.fits
+ 
+#--------------------- Memory (change with caution!) -------------------------
+ 
+MEMORY_OBJSTACK  30000          # number of objects in stack
+MEMORY_PIXSTACK  3000000        # number of pixels in stack
+MEMORY_BUFSIZE   1024           # number of lines in buffer
+ 
+#------------------------------- ASSOCiation ---------------------------------
+
+ASSOC_NAME       sky.list       # name of the ASCII file to ASSOCiate
+ASSOC_DATA       2,3,4          # columns of the data to replicate (0=all)
+ASSOC_PARAMS     2,3,4          # columns of xpos,ypos[,mag]
+ASSOC_RADIUS     2.0            # cross-matching radius (pixels)
+ASSOC_TYPE       MAG_SUM        # ASSOCiation method: "FIRST", "NEAREST",
+                                # "MEAN", "MAG_MEAN", "SUM", "MAG_SUM",
+                                #"MIN" or "MAX"
+ASSOCSELEC_TYPE  MATCHED        # ASSOC selection type: "ALL", "MATCHED"
+                                # or "-MATCHED"
+
+#----------------------------- Miscellaneous ---------------------------------
+ 
+VERBOSE_TYPE     NORMAL         # can be "QUIET", "NORMAL" or "FULL"
+
+
