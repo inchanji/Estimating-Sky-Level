@@ -1,0 +1,50 @@
+psf :
+  type : Moffat
+  fwhm : { type : Catalog , col : 10 }
+  beta : { type : Catalog , col : 11 }
+gal :
+  type : Sersic
+  n : { type : Catalog , col : 6 } 
+  half_light_radius : { type : Catalog , col : 3 } 
+  flux : { type : Catalog , col : 8 } 
+  #trunc : { type : Catalog , col : 14}
+  shear :
+    type : EBeta
+    e : { type : Catalog , col : 4 } 
+    beta : 
+      theta : { type : Catalog , col : 5 } 
+      type : Degrees
+
+
+image :
+
+    gsparams: {maximum_fft_size: 40000}
+    type : Scattered
+            
+    size : 2200 #8000 #5000 #4000 #3200 # 512 
+    #nobjects : 20
+    pixel_scale : 0.257  # arcsec / pixel
+
+    # Define what kind of noise to use
+    #noise :
+    #    sky_level : { type : Catalog , col : 9 }  # ADU / arcsec^2
+    random_seed : RADOMNUMBER
+    nproc : NCPU
+    image_pos : 
+      type : XY 
+      x : { type : Catalog , col : 1 } 
+      y : { type : Catalog , col : 2 } 
+
+input :
+    # In this case, we just have a catalog to read in.
+    catalog :
+        dir : input
+        file_name : FILENAME
+
+
+output :
+    nimages : 1
+    type : MultiFits
+
+    dir : output_yaml
+    file_name : FILENAME
